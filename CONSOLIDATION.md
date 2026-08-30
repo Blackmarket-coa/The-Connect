@@ -21,15 +21,12 @@ verdicts, decisions, and the ordered roadmap — is `docs/REPO_CONSOLIDATION_REV
 
 ## Why UCP stays interesting for that future step
 
-| BMC surface today (FBM) | UCP concept |
-| --- | --- |
-| `/v1/marketplace/*` catalog + `/v1/checkout/sessions` | Catalog search/lookup + Checkout sessions |
-| `connect.js` embed with publishable keys | Embedded Protocol (`ec.*` / `ep.cart.*` messages) |
-| Ed25519 `marketplace-signing` envelopes | `/.well-known/ucp` profile with JWK request signing |
-| Per-partner HMAC bridge credentials | UCP-Agent profile identification |
-| `marketplace-webhooks` (HMAC, per-seller subscriptions) | (no server-side event spec in UCP — a gap) |
-
-Known mismatch to carry into any adoption decision: UCP models one platform transacting with one
-business — it has no marketplace-operator concept, no seller onboarding, no order listing beyond
-`GET /orders/{id}`, and no payouts/commission. It is a strong federation/discovery front door and
-roughly the front half of what BMC federation would need.
+The full BMC↔UCP concept mapping now lives in this repo's docs (W6):
+[`docs/documentation/ucp-and-bmc-connect.md`](docs/documentation/ucp-and-bmc-connect.md) — one row
+per production surface, transports named, plus what UCP does not model (no marketplace-operator
+concept, no seller onboarding, no order listing beyond `GET /orders/{id}`, no payouts/commission:
+a strong federation front door, roughly the front half of what BMC federation would need). One
+correction to this file's earlier seed table carried into the page: UCP **does** specify a
+server-side event surface — the order-scoped, platform-inbound Order Event Webhook (Standard
+Webhooks signature headers) — narrower than BMC's per-seller `marketplace-webhooks`, but not
+absent.
