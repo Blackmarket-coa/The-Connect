@@ -36,6 +36,7 @@ nav:
           "https://ucp.dev/latest/specification/overview/",
         ]
       - UCP and AP2: documentation/ucp-and-ap2.md
+      - UCP and BMC Connect: documentation/ucp-and-bmc-connect.md
       - Roadmap: documentation/roadmap.md
       - Schema Authoring: documentation/schema-authoring.md
       - Versioning: versioning.md
@@ -372,6 +373,11 @@ plugins:
               Integration patterns with the Agent Payments Protocol (AP2) to
               facilitate secure, agent-mediated checkout commitments and
               cryptographically signed mandates.
+          - documentation/ucp-and-bmc-connect.md: >-
+              Fork-maintained mapping of BMC Connect (the Free Black Market
+              production commerce surface: /v1 marketplace layer, connect.js
+              embed SDK, webhooks, Ed25519 signing) onto UCP's canonical
+              concepts, with the gaps UCP does not model.
           - documentation/roadmap.md: >-
               Future development and planned capabilities of UCP.
           - documentation/schema-authoring.md: >-
